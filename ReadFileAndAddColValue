@@ -1,0 +1,54 @@
+import java.io.{BufferedWriter, FileWriter}
+import scala.io.Source
+
+/**
+  * Created by DRehi on 10/3/2016.
+  * This is a program to append a file and add a new Column using the values of an existing column of a txt/csv file!
+  * the sample file is available by the name "test.tx" and new file is available by the name "test1.txt"
+  */
+object ReadFileAndAddColValue {
+  def main(args: Array[String]): Unit = {
+
+    var newColValue = ""
+    var readColumnToString = ""
+
+    val file = new FileWriter("C:\\Users\\drehi\\workspace\\untitled\\src\\test1.txt") //creates a new file@drehi
+    var vuff = new BufferedWriter(file) //reads the file@drehi
+    vuff.append("phl_phi_id\tphi_description\tphl_id\tphl_level_node_char\tphl_level_node_total_char\n") //add the first line to the file representing the column names
+
+
+    val readFile = Source.fromFile("C:\\Users\\drehi\\workspace\\untitled\\src\\test.txt") //reads a file
+    val readFileLines = readFile.getLines.map(x => x.split("\t")) //read each line and split the values by \t
+
+
+    //runs the whole file and check for either null or other value in a perticular column and then add the value to the newCol,
+    //appends to the new file all the previous column with the new value of the new Column newCol!@drehi
+
+
+    for (e <- readFileLines) {
+
+      readColumnToString = e mkString "\t" //convert the line into a string and seperate the elements with \t(tab separated)
+
+      if (e(3) == "null") {
+        //check for the value 'null' and substitute null by SUPERCATEGORY
+        newColValue = "SUPERCATEGORY"
+        vuff.append(readColumnToString + "\t" + newColValue + "\n") //add the previous available columns with the newColValue and append to the new File
+
+
+        // println(newColValue) : use this to print newColValue to the console!@drehi
+      }
+
+      else {
+        newColValue = newColValue + " | " + e(3) //if not null then add previous newCalValue with | separated colValue to newCalValue
+        vuff.append(readColumnToString + "\t" + newColValue + "\n") //append the previous available columns with the newColValue and append to the new File
+
+
+        // println(newColValue) : use this to print newColValue to the console!@drehi      }
+      }
+
+      vuff.close()//close the buffer reader!@drehi
+
+
+    }
+  }
+}
