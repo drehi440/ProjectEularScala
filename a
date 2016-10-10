@@ -23,3 +23,11 @@ public static String getColType(Map<String, List<Column>> columns,
 		}
 		return columnDataType;
 	}
+
+
+
+@Test
+//file name =ITEM_MASTER_MAP.csv
+//Listof Col:CNTRY_ID,CI_ID,ITEM_ID,ITEM_BARCODE,CTG_ID
+//columns me ye dono pass karna hai:
+//
