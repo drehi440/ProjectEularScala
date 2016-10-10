@@ -31,3 +31,4 @@ public static String getColType(Map<String, List<Column>> columns,
 //Listof Col:CNTRY_ID,CI_ID,ITEM_ID,ITEM_BARCODE,CTG_ID
 //columns me ye dono pass karna hai:
 //
+Map<String, List<Column>> columns = new Map<String, List<Column>>();
