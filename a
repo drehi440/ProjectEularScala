@@ -1,0 +1,25 @@
+public static String getColType(Map<String, List<Column>> columns,
+			String csvName, String columnName) {
+		String columnDataType = null;
+		logger.info("csv...."+csvName);
+		if (!Utility.isNullString(columnName) && !Utility.isNullString(csvName)) {
+			if (columns != null && columns.size() > 0) {
+				if (columns.containsKey(csvName.toLowerCase())) {
+					List<Column> cols = columns.get(csvName.toLowerCase());
+					if (!Utility.isEmptyCollection(cols)) {
+						for (Iterator iterator = cols.iterator(); iterator
+								.hasNext();) {
+							Column column = (Column) iterator.next();
+							logger.info("col---"+column.getColumnName());
+							if (columnName.equalsIgnoreCase(column
+									.getColumnName())) {
+								columnDataType = column.getColumnDataType();
+								break;
+							}
+						}
+					}
+				}
+			}
+		}
+		return columnDataType;
+	}
