@@ -90,8 +90,7 @@ object reMaster {
         mainCondition1 = makeCondition2(finalfirstName, finalTaxId)//condition1
         mainCondition2 = makeCondition2(finalfirstName, finalLicenceNum)//condition 2
         
-        if(map1.containsKey(mainCondition1) || map1.containsKey(mainCondition2 )){//if 1st condition is true: Run// false: Check the other condition
-          map1.get(updateLineWithId)
+        if(map1.containsKey(mainCondition1) && finalTaxId.trim().length()>0 || map1.containsKey(mainCondition2 ) && finalLicenceNum.length()>0)  map1.get(updateLineWithId){
                     if(map1.get(mainCondition1)!=null ){
                           finalListRow = LineAsString + "," + map1.get(mainCondition1)
                     }
