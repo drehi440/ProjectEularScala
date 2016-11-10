@@ -1,0 +1,773 @@
+{
+  "clientSpec": {
+    "service": "ICE",
+    "CI_ID": 7,
+    "CNTRY_ID": 55
+  },
+  "sourceFileRef": {
+    "compressedfilenm": "Brazil_Ref_Raw_Data.zip",
+    "filepath": "",
+    "filedetails": [
+      {
+        "filename": "7_item_master_map_2016011.csv",
+        "type": "ITEM",
+        "fileMetaData": {
+          "columns": [
+            {
+              "columnName": "CNTRY_ID",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "CI_ID",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "ITEM_ID",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "ITEM_BARCODE",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "CTG_ID",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "CHAR_13",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "CHAR_39",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "CHAR_8",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "CHAR_15",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "CHAR_18",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "CHAR_19",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "CHAR_16",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "CHAR_11",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "CHAR_17",
+              "columnDataType": "NUMBER"
+            }
+          ]
+        }
+      },
+      {
+        "filename": "7_str_master_map_2016011.csv",
+        "type": "STORE",
+        "fileMetaData": {
+          "columns": [
+            {
+              "columnName": "CNTRY_ID",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "CI_ID",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "STR_ID",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "CHAR_135",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "CHAR_132",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "CHAR_139",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "CHAR_141",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "CHAR_131",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "CHAR_133",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "CHAR_138",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "CHAR_140",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "CHAR_134",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "CHAR_136",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "CHAR_137",
+              "columnDataType": "NUMBER"
+            }
+          ]
+        }
+      },
+      {
+        "filename": "7_exh_master_map_2016011.csv",
+        "type": "EXHIBITION",
+        "fileMetaData": {
+          "columns": [
+            {
+              "columnName": "CNTRY_ID",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "CI_ID",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "EXHB_TYP_ID",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "CHAR_1",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "CHAR_2",
+              "columnDataType": "NUMBER"
+            }
+          ]
+        }
+      },
+      {
+        "filename": "7_lctn_master_map_2016011.csv",
+        "type": "LOCATION",
+        "fileMetaData": {
+          "columns": [
+            {
+              "columnName": "CNTRY_ID",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "CI_ID",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "LCTN_ID",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "CHAR_1",
+              "columnDataType": "NUMBER"
+            }
+          ]
+        }
+      },
+      {
+        "filename": "7_prd_master_map_2016011.csv",
+        "type": "PERIOD",
+        "fileMetaData": {
+          "columns": [
+            {
+              "columnName": "CNTRY_ID",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "CI_ID",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "PERIOD_ID",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "CHAR_1",
+              "columnDataType": "NUMBER"
+            }
+          ]
+        }
+      },
+      {
+        "filename": "7_qstn_master_map_2016011.csv",
+        "type": "QUESTION",
+        "fileMetaData": {
+          "columns": [
+            {
+              "columnName": "CNTRY_ID",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "CI_ID",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "QUES_ID",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "QUES_LVL_ID",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "QUES_LVL_DESC",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "QUES_TYP_ID",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "QUES_TYP_DESC",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "QUES_DESC",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "QUES_OPT_ID",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "QUES_OPT_DESC",
+              "columnDataType": "NUMBER"
+            }
+          ]
+        }
+      },
+      {
+        "filename": "7_raw_data_exhblctn_2016011.csv",
+        "type": "RAWDATA EXHBLCTN",
+        "fileMetaData": {
+          "columns": [
+            {
+              "columnName": "CNTRY_ID",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "CI_ID",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "STR_ID",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "AUDIT_PERIOD",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "EXHB_TYP_ID",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "EXHB_INT_ID",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "LOC_ID",
+              "columnDataType": "NUMBER"
+            }
+          ]
+        }
+      },
+      {
+        "filename": "7_raw_data_fcts_2016011.csv",
+        "type": "RAWDATA FACTS",
+        "fileMetaData": {
+          "columns": [
+            {
+              "columnName": "CNTRY_ID",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "CI_ID",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "STR_ID",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "AUDIT_PERIOD",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "RW_ID",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "EXHB_TYP_ID",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "EXHB_INT_ID",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "ITEM_ID",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "CTG_ID",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "PRESENCE",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "FACINGSNOVISIBLE",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "PRICECOMM",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "FACINGS",
+              "columnDataType": "NUMBER"
+            }
+          ]
+        }
+      },
+      {
+        "filename": "7_raw_data_quest_2016011.csv",
+        "type": "RAWDATA QUESTIONS",
+        "fileMetaData": {
+          "columns": [
+            {
+              "columnName": "CNTRY_ID",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "CI_ID",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "STR_ID",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "AUDIT_PERIOD",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "RW_ID",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "EXHB_TYP_ID",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "EXHB_INT_ID",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "ITEM_ID",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "CTG_ID",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "QUES_TYP_ID",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "QUES_LVL_ID",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "QUES_ID",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "QUES_OPT_ID",
+              "columnDataType": "NUMBER"
+            },
+            {
+              "columnName": "QUES_ANSWER",
+              "columnDataType": "NUMBER"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "Metrics": [
+    {
+      "MetricInstanceID": "1",
+      "MetricInstanceName": "SOVI_Gondola_SSD",
+      "Sequence": "1",
+      "Reporting": "YES",
+      "Dependency": "NO",
+      "Steps": [
+        {
+          "StepId": "1",
+          "StepName": "Facing_Objective",
+          "Sequence": "1",
+          "Dependency": "NO",
+          "Expression": {
+            "File": "7_raw_data_fcts_2016011.csv",
+            "type": "csv",
+            "Operand": "SUM",
+            "Col_NM": "FACING",
+            "Aggregation": "STR_ID,AUDIT_PERIOD",
+            "Data": [
+              {
+                "File": "7_item_master_map_2016011.csv",
+                "Col_NM": "ITEM_ID",
+                "Filters": [
+                  {
+                    "and": [
+                      {
+                        "in": {
+                          "CTG_ID": [
+                            373,
+                            365
+                          ]
+                        }
+                      },
+
+                      {
+
+						  "or": [
+							{
+							  "and": [
+								{
+								  "eq": [
+									"CHAR_11",
+									3461
+								  ]
+								},
+								{
+								  "in": {
+									"CTG_ID": [
+									  360,
+									  363,
+									  364,
+									  365,
+									  373,
+									  376
+									]
+								  }
+								},
+								{
+								  "in": {
+									"CHAR_13": [
+									  70,
+									  150,
+									  451,
+									  642,
+									  759,
+									  774,
+									  875,
+									  956,
+									  1099,
+									  1224,
+									  1269,
+									  1284,
+									  1303,
+									  1983,
+									  2118,
+									  2225,
+									  2347,
+									  2396,
+									  2563,
+									  2703,
+									  2705,
+									  2928,
+									  3302,
+									  3350,
+									  3450,
+									  3743,
+									  3894,
+									  4022,
+									  4068,
+									  4087,
+									  4459,
+									  4579
+									]
+								  }
+								}
+							  ]
+							},
+							{
+							  "and": [
+								{
+								  "eq": [
+									"CHAR_11",
+									3461
+								  ]
+								},
+								{
+								  "in": {
+									"CTG_ID": [
+									  374,
+									  375
+									]
+								  }
+								},
+								{
+								  "in": {
+									"CHAR_13": [
+									  339,
+									  1109
+									]
+								  }
+								},
+								{
+								  "in": {
+									"CHAR_39": [
+									  496,
+									  541,
+									  1029,
+									  1156,
+									  2471,
+									  2496,
+									  4225,
+									  4672
+									]
+								  }
+								}
+							  ]
+							},
+							{
+							  "and": [
+								{
+								  "eq": [
+									"CHAR_11",
+									3573
+								  ]
+								},
+								{
+								  "eq": [
+									"CTG_ID",
+									360
+								  ]
+								},
+								{
+								  "eq": [
+									"CHAR_13",
+									1885
+								  ]
+								}
+							  ]
+							},
+							{
+							  "and": [
+								{
+								  "eq": [
+									"CHAR_11",
+									428
+								  ]
+								},
+								{
+								  "eq": [
+									"CTG_ID",
+									360
+								  ]
+								},
+								{
+								  "eq": [
+									"CHAR_13",
+									2563
+								  ]
+								}
+							  ]
+							},
+							{
+							  "and": [
+								{
+								  "eq": [
+									"CHAR_11",
+
+									3137
+								  ]
+								},
+								{
+								  "eq": [
+									"CTG_ID",
+									360
+								  ]
+								},
+								{
+								  "eq": [
+									"CHAR_13",
+									3170
+								  ]
+								}
+							  ]
+							}
+						  ]
+
+                      }					  
+                    ]
+                  }
+                ]
+              },
+              {
+                "File": "7_exh_master_map_2016011.csv",
+                "Col_NM": "EXHB_TYP_ID",
+                "Filters": [
+                  {
+                    "in": {
+                      "EXHB_TYP_ID": [
+                        54
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "File": "7_str_master_map_2016011.csv",
+                "Col_NM": "STR_ID",
+                "Filters": [
+                  {
+                    "in": {
+                      "CHAR_135": [
+                        155,
+                        5249
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "StepId": "2",
+          "StepName": "Facing_Total",
+          "Sequence": "2",
+          "Dependency": "NO",
+          "Expression": {
+            "File": "7_raw_data_fcts_2016011.csv",
+            "type": "csv",
+            "Operand": "SUM",
+            "Col_NM": "FACING",
+            "Aggregation": "STR_ID,AUDIT_PERIOD",
+            "Data": [
+              {
+                "File": "7_item_master_map_2016011.csv",
+                "Col_NM": "ITEM_ID",
+                "Filters": [
+                  {
+                    "in": {
+                      "CTG_ID": [
+                        373,
+                        365
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "File": "7_exh_master_map_2016011.csv",
+                "Col_NM": "EXHB_TYP_ID",
+                "Filters": [
+                  {
+                    "in": {
+                      "EXHB_TYP_ID": [
+                        54
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "File": "7_str_master_map_2016011.csv",
+                "Col_NM": "STR_ID",
+                "Filters": [
+                  {
+                    "in": {
+                      "CHAR_135": [
+                        155,
+                        5249
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "StepId": "3",
+          "StepName": "SOVI_Gondola_SSD",
+          "Sequence": "3",
+          "Dependency": "YES",
+          "Expression": {
+            "File": "Facing_Objective,Facing_Total",
+            "type": "step",
+            "Aggregation": "STR_ID,AUDIT_PERIOD",
+            "Data": [
+              {
+                "File": null,
+                "Col_NM": null,
+                "Filters": [
+                  {
+                    "div": [
+                      "Facing_Objective",
+                      "Facing_Total"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "targetFileRef": [
+        {
+          "columnName": "COUNTRY_ID",
+          "columnDataType": "Integer"
+        },
+        {
+          "columnName": "CLIENT_INSTR_ID",
+          "columnDataType": "Integer"
+        },
+        {
+          "columnName": "STR_ID",
+          "columnDataType": "Integer"
+        },
+        {
+          "columnName": "AUDIT_PERIOD",
+          "columnDataType": "Integer"
+        },
+        {
+          "columnName": "SOVI_Gondola_SSD",
+          "columnDataType": "Integer"
+        }
+      ]
+    }
+  ]
+}
