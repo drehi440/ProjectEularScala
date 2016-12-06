@@ -43,55 +43,8 @@ public class StreamJava {
 		
 	} 
 	
-	class Person{
-		String Name;
-		int Age;
-		String City;
-		String Country;
-		
-		public Person(String Name, int Age, String City,
-				String Country) {
-			this.Name=Name;
-			this.Age= Age;
-			this.City=City;
-			this.Country=Country;
-				
-			
-			
-		}
-
-		public String getName() {
-			return Name;
-		}
-
-		public void setName(String name) {
-			Name = name;
-		}
-
-		public int getAge() {
-			return Age;
-		}
-
-		public void setAge(int age) {
-			Age = age;
-		}
-
-		public String getCity() {
-			return City;
-		}
-
-		public void setCity(String city) {
-			City = city;
-		}
-
-		public String getCountry() {
-			return Country;
-		}
-
-		public void setCountry(String country) {
-			Country = country;
-		}
-
-	}
+	
 	
 }
+
+
