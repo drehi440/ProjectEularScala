@@ -1,4 +1,4 @@
-spark-shell --packages com.databricks:spark-csv_2.10:1.1.0 --queue root.etl - --conf spark.ui.port=4052 
+spark-shell --packages com.databricks:spark-csv_2.10:1.1.0 --queue root.etl --conf spark.ui.port=4052 
 
 import org.apache.spark.sql.SQLContext
 import org.apache.spark.sql.expressions._
