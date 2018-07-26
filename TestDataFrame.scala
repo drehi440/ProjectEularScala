@@ -15,36 +15,29 @@ df.printSchema()
 val dfOriginal = sqlContext.read.format("com.databricks.spark.csv").option("header", "true").option("delimiter", "\t").load("/user/rede7001/originalODI.csv")
 dfOriginal.printSchema
 
-
-
-val totalMatchIndia = dfOriginal.where(lower($"Team 1") === "india" || lower($"Team 2") === "india")
-
-val iccWithHost = totalMatchIndia.as("t1").join(df.select($"Ground", $"Host_Country" ).distinct.as("t2"), $"t1.Ground" === $"t2.Ground","left").join(df.select($))select($"t1.*",$"t2.Host_Country")
-
 1. What is India’s total Win/Loss/Tie percentage?
 
-val totalMatchIndiaCount = iccWithHost.count
-totalMatchIndiaCount: Long = 930
 
-val totalWinIndia = iccWithHost.where(lower($"Winner") === "india")
-val totalWinIndiaCount = totalWinIndia.count
-totalWinIndia: Int = 476
+val df2 = dfOriginal.select($"Team 1",$"Team 2", $"Winner")
 
-
-val totalLoss = iccWithHost.where(not((lower($"winner") === "india" || lower($"winner") === "no result" )))
-val totalLossCount = totalLoss.count.toInt
-totalLoss: Int = 414
-
-val totalTie = iccWithHost.where(lower($"Winner") === "no result")
-val totalTieCount = totalTie.count
-totalTie: Long = 40
+val totalIndia=df2.select(
+when((lower($"Team 1")==="india" || lower($"Team 2")==="india") && lower($"Winner")==="india","Winner").
+when((lower($"Team 1")==="india" || lower($"Team 2")==="india") && not(lower($"Winner") isin ("india","no result")),"Lose").
+when((lower($"Team 1")==="india" || lower($"Team 2")==="india") && lower($"Winner")==="no result","Tie")
+.alias("Win-Loss-Tie")
+).filter($"Win-Loss-Tie".isNotNull)
 
 
-  println(s"Win Percentage of India = ${totalWinIndiaCount * 100f/totalMatchIndiaCount} %\nLoss Percentage of India = ${totalLossCount * 100f/totalMatchIndiaCount} %\nTie Percentage of India = ${totalTieCount *100f/totalMatchIndiaCount} %")
+val india = totalIndia.
+withColumn("totalCount", lit(totalIndia.count())).
+withColumn("totalWinCount",lit(totalIndia.filter(lower($"Win-Loss-Tie")==="winner").count())).
+withColumn("totalLossCount",lit(totalIndia.filter(lower($"Win-Loss-Tie")==="lose").count())).
+withColumn("totalTieCount",lit(totalIndia.filter(lower($"Win-Loss-Tie")==="tie").count())).
+show()
 
-Win Percentage of India = 51.182796 %
-Loss Percentage of India = 44.51613 %
-Tie Percentage of India = 4.3010755 %
+val indiapercentage=totalIndia.
+groupBy($"Win-Loss-Tie").
+agg(count("*").alias("individual")).withColumn("percentage", $"individual".multiply(100).cast("integer")/  lit(totalIndia.count())).show()
 
 
 
@@ -105,3 +98,96 @@ val totalMatchAgainsts = iccWithHost.where($"Team 1" === "India").where(not($"Te
 How many matches India has won or lost against different teams?
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+Questions: 
+
+1. What is the 2nd most delayed route of the flights operated by ‘Pacific Airways’
+2. What carrier has flown the 3rd most number of flights? How many? 
+3. What airport has the 10th most delays? 
+4. What is the second most popular day of the week to travel? Why? 
+5. What is the 10th most flown route?
+6. What other actionable insights can we gain by leveraging the TranStats dataset?   
+
+				Pyspark
+
+from pyspark.sql import functions as F
+from pyspark.sql.window import Window as W
+
+monthlydata=sqlContext.table("monthlydata")
+lookupdata=sqlContext.table("lookupdata")
+
+1st=>
+
+monthlydata1=monthlydata.join(lookupdata,F.col("carrier")==F.col("code")).filter(F.lower(F.col("description"))=="pacific airways")
+
+monthlydata2=monthlydata1.groupBy("origin","dest").agg(F.sum("ARR_DELAY").cast("int").alias("totaldelay"))
+
+window=W.partitionBy(F.col("origin"),F.col("dest")).orderBy(F.col("totaldelay").desc())
+
+monthlydata3=monthlydata2.select(F.col("origin"),F.col("dest"),F.row_number().over(window).alias("rowid"),"totaldelay")
+
+monthlydata3.filter(F.col("rowid")==2)
+
+2nd=>
+
+monthlydata2=monthlydata.groupBy(F.col("carrier")).agg(F.count(F.lit(1)).alias("totalflights"))
+
+window=W.partitionBy(F.col("carrier")).orderBy(F.col("totalflights").desc())
+
+monthlydata3=monthlydata2.select(F.col("carrier"),F.row_number().over(window).alias("rowid"),"totalflights")
+
+monthlydata3.filter(F.col("rowid")==3).show()
+
+3rd =>
+
+monthlydata1=monthlydata.select("ORIGIN_AIRPORT_ID","ORIGIN",F.col("DEP_DELAY_NEW").cast("long")).filter(F.col("DEP_DELAY_NEW")>0)
+monthlydata2=monthlydata1.groupBy(F.col("ORIGIN_AIRPORT_ID"),F.col("ORIGIN")).agg(F.count(F.col("DEP_DELAY_NEW")).alias("Total_DEP_DELAY"))
+
+window=W.partitionBy(F.col("ORIGIN_AIRPORT_ID"),F.col("ORIGIN")).orderBy(F.col("Total_DEP_DELAY").desc())
+
+monthlydata3=monthlydata2.select(F.col("ORIGIN_AIRPORT_ID"),F.col("ORIGIN"),F.row_number().over(window).alias("rowid"))
+
+monthlydata3.filter(F.col("rowid")==10).show()
+
+
+
+4th =>
+
+
+monthlydata1=monthlydata.select(F.date_format(F.from_unixtime(F.unix_timestamp('FL_DATE', 'yyyymmdd')),'E').alias('dayofweek'))
+monthlydata2=monthlydata1.groupBy(F.col("dayofweek")).agg(F.count(F.lit(1)).alias("totalflights"))
+
+window=W.partitionBy(F.col("dayofweek")).orderBy(F.col("totalflights").desc())
+
+monthlydata3=monthlydata2.select(F.col("dayofweek"),F.row_number().over(window).alias("rowid"),"totalflights")
+
+monthlydata3.filter(F.col("rowid")==2).show()
+
+
+
+5th=>
+monthlydata2=monthlydata.groupBy("origin","dest").agg(F.count(F.lit(1)).alias("totalflights"))
+
+window=W.partitionBy(F.col("origin"),F.col("dest")).orderBy(F.col("totalflights").desc())
+
+monthlydata3=monthlydata2.select(F.col("origin"),F.col("dest"),F.row_number().over(window).alias("rowid"),"totalflights")
+
+monthlydata3.filter(F.col("rowid")==10)
+
+
+
+6th =>
+
+We can get the insights of the airline with most no of cancelled,emergency landing,delayed departure flights.
